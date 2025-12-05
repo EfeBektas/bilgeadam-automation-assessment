@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 
 namespace TestAutomation.Drivers
 {
@@ -9,16 +9,15 @@ namespace TestAutomation.Drivers
         {
             IWebDriver driver;
 
+            // Şu an tek desteklenen tarayıcı Edge
             switch (browser.ToLower())
             {
-                case "chrome":
-                    var options = new ChromeOptions();
-                    options.AddArgument("--start-maximized");
-                    driver = new ChromeDriver(options);  // Selenium Manager auto-handles driver version
-                    break;
-
+                case "edge":
                 default:
-                    throw new ArgumentException($"Unsupported browser: {browser}");
+                    var edgeOptions = new EdgeOptions();
+                    edgeOptions.AddArgument("--start-maximized");
+                    driver = new EdgeDriver(edgeOptions);
+                    break;
             }
 
             return driver;

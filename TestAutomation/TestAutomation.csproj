@@ -11,10 +11,14 @@
 
   <ItemGroup>
     <None Remove="Config\appsettings.json" />
+    <None Remove="TestData\products.json" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Config\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\products.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -42,11 +46,6 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Utils\" />
-    <Folder Include="TestData\" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 
 namespace TestAutomation.Drivers
 {
@@ -14,10 +12,9 @@ namespace TestAutomation.Drivers
             switch (browser.ToLower())
             {
                 case "chrome":
-                    new DriverManager().SetUpDriver(new ChromeConfig());
                     var options = new ChromeOptions();
                     options.AddArgument("--start-maximized");
-                    driver = new ChromeDriver(options);
+                    driver = new ChromeDriver(options);  // Selenium Manager auto-handles driver version
                     break;
 
                 default:

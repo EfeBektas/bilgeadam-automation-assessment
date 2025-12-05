@@ -27,6 +27,11 @@ namespace TestAutomation.Pages
                          .Select(q => int.Parse(q.Text))
                          .ToList();
         }
+        public void ProceedToCheckout()
+        {
+            var checkoutButton = By.Id("checkout");
+            Wait.UntilClickable(checkoutButton).Click();
+        }
 
     }
 }

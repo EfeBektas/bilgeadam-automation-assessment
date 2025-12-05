@@ -21,5 +21,12 @@ namespace TestAutomation.Pages
         {
             return Driver.FindElements(CartItemPrices).Select(x => x.Text.Replace("$", "")).ToList();
         }
+        public List<int> GetCartItemQuantities()
+        {
+            return Driver.FindElements(By.ClassName("cart_quantity"))
+                         .Select(q => int.Parse(q.Text))
+                         .ToList();
+        }
+
     }
 }

@@ -49,6 +49,14 @@ namespace TestAutomation.Tests
                 Assert.That(cartPrices.Contains(expectedPrice),
                     $"Cart does not contain price: {expectedPrice}");
             }
+            var quantities = cartPage.GetCartItemQuantities();
+
+            Assert.That(quantities.All(q => q == 1), "One or more items have incorrect quantity.");
+
+            Assert.That(quantities.Count == products.Count,
+                "Number of quantities does not match number of products.");
+
+
         }
     }
 }

@@ -31,7 +31,6 @@ namespace TestAutomation.Tests
 
             var names = cartPage.GetCartItemNames();
 
-            // Fiyatları decimal'e çevir (DOM → "$29.99")
             var cartPrices = cartPage.GetCartItemPrices()
                 .Select(p => decimal.Parse(p.Replace("$", ""), CultureInfo.InvariantCulture))
                 .ToList();
@@ -40,7 +39,6 @@ namespace TestAutomation.Tests
             {
                 Assert.That(names.Contains(p.name), $"Cart does not contain product: {p.name}");
 
-                // JSON → "29,99" → decimal'e çevir
                 var expectedPrice = decimal.Parse(
                     p.price.ToString(),
                     CultureInfo.GetCultureInfo("tr-TR")
